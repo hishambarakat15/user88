@@ -1,0 +1,92 @@
+<!-- ========== Left Sidebar Start ========== -->
+
+<ng-template #contentTemplate>
+  <!--- Sidemenu -->
+  <div id="sidebar-menu">
+    <!-- Left Menu Start -->
+    <ul class="metismenu list-unstyled" id="side-menu" #sideMenu>
+      <!-- {{menuItems}} -->
+
+      <ng-container>
+        <li>
+          <a
+            routerlinkactive="active"
+            class="side-nav-link-ref"
+            routerLink="users-approval"
+          >
+            <i class="bx bx-user"></i>
+            <span> Users Approval</span>
+          </a>
+        </li>
+        <li class="menu-title">Administrator</li>
+        <li>
+          <a
+            routerlinkactive="active"
+            class="side-nav-link-ref"
+            routerLink="lockUps"
+          >
+            <i class="bx bx-file"></i>
+            <span> LookUps</span>
+          </a>
+        </li>
+        <li>
+          <a
+            routerlinkactive="active"
+            class="side-nav-link-ref"
+            routerLink="clubIds"
+          >
+            <i class="bx bx-file"></i>
+            <span> Club Ids</span>
+          </a>
+        </li>
+        <li>
+          <a
+            routerlinkactive="active"
+            class="side-nav-link-ref"
+            routerLink="carBrand"
+          >
+            <i class="bx bx-file"></i>
+            <span> CarBrand</span>
+          </a>
+        </li>
+
+        <li>
+          <a
+            routerlinkactive="active"
+            class="side-nav-link-ref"
+            routerLink="governorates"
+          >
+            <i class="bx bx-file"></i>
+            <span> Governorates</span>
+          </a>
+        </li>
+        <li>
+          <a
+            routerlinkactive="active"
+            class="side-nav-link-ref"
+            routerLink="employmentTypes"
+          >
+            <i class="bx bx-file"></i>
+            <span> Employment Types </span>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</ng-template>
+<!-- Sidebar -->
+
+<div class="vertical-menu">
+  <ngx-simplebar class="h-100" #componentRef>
+    <div *ngIf="!isCondensed">
+      <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+    </div>
+  </ngx-simplebar>
+  <!-- <div>
+        <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+    </div> -->
+  <!-- <div>
+        <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+    </div> -->
+</div>
+<!-- Left Sidebar End-->
