@@ -14,8 +14,16 @@
               formControlName="name"
             />
           </div>
-
-          <div formArrayName="carModelModels">
+          <div class="mb-3">
+            <label for="formrow-firstname-input">Car Brand Code</label>
+            <input
+              type="text"
+              class="form-control"
+              id="formrow-firstname-input"
+              formControlName="code"
+            />
+          </div>
+          <!-- <div formArrayName="carModelModels">
             <ng-container
               *ngFor="
                 let carModel of getCarModel().controls;
@@ -55,7 +63,7 @@
             (click)="addCarModel()"
           >
             Add Car Model
-          </button>
+          </button> -->
           <div>
             <button
               type="submit"
@@ -90,11 +98,32 @@
 
           <div class="mb-3">
             <label for="formrow-firstname-input">Car Brand Id </label>
-            <input
+            <!-- <input
               type="number"
               class="form-control"
               id="formrow-firstname-input"
               formControlName="brandId"
+            /> -->
+            <select
+              class="form-select"
+              formControlName="brandId"
+              placeholder="Select Car Brand Id"
+            >
+              <!-- <option>Select</option> -->
+              <option *ngFor="let car of AllCarBrand" value="{{ car.id }}">
+                {{ car.id }}
+              </option>
+              <!-- <option>Small select</option> -->
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="formrow-firstname-input">Car Model Code </label>
+            <input
+              type="text"
+              class="form-control"
+              id="formrow-firstname-input"
+              formControlName="code"
             />
           </div>
 

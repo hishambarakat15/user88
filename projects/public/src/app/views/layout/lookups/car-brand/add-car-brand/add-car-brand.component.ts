@@ -10,6 +10,7 @@ import { LookUpsService } from 'projects/public/src/app/shared/services/endpoint
 export class AddCarBrandComponent implements OnInit {
   carBrandForm!: FormGroup;
   carModelForm!:FormGroup;
+  AllCarBrand: any[] = [];
   constructor(private formBuilder: FormBuilder , 
     private _lookUpsServices: LookUpsService , private location: Location) { }
 
@@ -24,9 +25,14 @@ export class AddCarBrandComponent implements OnInit {
     this.carModelForm = this.formBuilder.group({
       name: ['', Validators.required],
       brandId: [ Validators.required],
+      code: ['', Validators.required],
      
     });
 
+    this._lookUpsServices.getCarBrands().subscribe(res=>{
+      this.AllCarBrand = res.data;
+      console.log(this.AllCarBrand);
+    })
   }
 
   /* Create Form Item */ 
@@ -36,6 +42,7 @@ export class AddCarBrandComponent implements OnInit {
       case 'init':
         formItem = this.formBuilder.group({
           name: '',
+          code: '',
           carModelModels: this.formBuilder.array([])
         })
         break;
@@ -76,7 +83,8 @@ export class AddCarBrandComponent implements OnInit {
   onSubmitModel(){
     const obj  ={
       name: this.carModelForm.controls['name'].value,     
-      brandId: this.carModelForm.controls['brandId'].value         
+      brandId: this.carModelForm.controls['brandId'].value,         
+      code: this.carModelForm.controls['code'].value         
   }
 
   this._lookUpsServices.addCarModel(obj).subscribe(res=>{

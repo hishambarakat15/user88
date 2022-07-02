@@ -13,8 +13,10 @@
         <thead class="table-light">
           <tr>
             <th scope="col">Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Care Model</th>
+            <th scope="col">Car Brand Name</th>
+            <th scope="col">Car Brand Code</th>
+            <th scope="col">Care Model Name</th>
+            <th scope="col">Care Model Code</th>
             <th scope="col">options</th>
           </tr>
         </thead>
@@ -31,6 +33,13 @@
               </h5>
             </td>
             <td>
+              <h5 class="font-size-14 mb-1">
+                <a href="javascript: void(0);" class="text-dark">{{
+                  car.code
+                }}</a>
+              </h5>
+            </td>
+            <td>
               <ul
                 class="verti-timeline list-unstyled"
                 *ngFor="let model of car.carModelModels; index as i"
@@ -41,6 +50,18 @@
                   </div>
                   <div *ngIf="model">
                     {{ model.name }}
+                  </div>
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul
+                class="verti-timeline list-unstyled"
+                *ngFor="let model of car.carModelModels; index as i"
+              >
+                <li class="event-list mb-3">
+                  <div *ngIf="model">
+                    {{ model.code }}
                   </div>
                 </li>
               </ul>

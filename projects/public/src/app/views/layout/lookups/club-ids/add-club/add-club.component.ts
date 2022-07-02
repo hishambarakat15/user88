@@ -15,6 +15,7 @@ export class AddClubComponent implements OnInit {
   ngOnInit(): void {
     this.clubForm = this.formBuilder.group({
       clubName: ['', Validators.required],
+      clubCode: ['', Validators.required],
      
     });
 
@@ -22,9 +23,10 @@ export class AddClubComponent implements OnInit {
 
   onSubmit(){
     const obj  ={
-      name: this.clubForm.controls['clubName'].value         
+      name: this.clubForm.controls['clubName'].value,         
+      code: this.clubForm.controls['clubCode'].value         
   }
-
+console.log(obj)
   this._lookUpsServices.addClubId(obj).subscribe(res=>{
     this.location.back();
   })

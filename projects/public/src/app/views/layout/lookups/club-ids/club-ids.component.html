@@ -14,7 +14,8 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Name</th>
-            <th scope="col">options</th>
+            <th scope="col">Code</th>
+            <th scope="col">Options</th>
           </tr>
         </thead>
         <tbody>
@@ -22,10 +23,18 @@
             <td>
               {{ club["id"] }}
             </td>
+
             <td>
               <h5 class="font-size-14 mb-1">
                 <a href="javascript: void(0);" class="text-dark">
                   {{ club["name"] }}
+                </a>
+              </h5>
+            </td>
+            <td>
+              <h5 class="font-size-14 mb-1">
+                <a href="javascript: void(0);" class="text-dark">
+                  {{ club["code"] }}
                 </a>
               </h5>
             </td>
