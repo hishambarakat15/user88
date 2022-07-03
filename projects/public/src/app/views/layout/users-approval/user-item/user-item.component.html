@@ -44,7 +44,7 @@
                 </div>
                 <div class="mt-4">
                   <a
-                   (click)="accceptClicked()"
+                    (click)="accceptClicked()"
                     class="btn btn-success btn-sm mx-1"
                     >Accept <i class="mdi mdi-thumb-up-outline ms-1"></i
                   ></a>
@@ -74,7 +74,8 @@
                 </tr>
                 <tr>
                   <th scope="row">Gender :</th>
-                  <td>{{ userItem.gender }}</td>
+                  <td *ngIf="userItem.gender == '001'">Male</td>
+                  <td *ngIf="userItem.gender == '002'">Female</td>
                 </tr>
                 <tr>
                   <th scope="row">Location :</th>
@@ -92,21 +93,42 @@
           <h4 class="card-title mb-4">Document Information</h4>
 
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 mb-3" *ngIf="imagePathFrontNational">
               <h4 class="card-title">National Id Front</h4>
               <div class="">
                 <img
-                  [src]="imagePathFront"
+                  [src]="imagePathFrontNational"
                   class="img-fluid"
                   alt="Responsive image"
                 />
               </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 mb-3" *ngIf="imagePathBackNational">
               <h4 class="card-title">National Id Back</h4>
               <div class="">
                 <img
-                  [src]="imagePathBack"
+                  [src]="imagePathBackNational"
+                  class="img-fluid"
+                  alt="Responsive image"
+                />
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-3" *ngIf="imagePathFrontLicense">
+              <h4 class="card-title">Car License Front</h4>
+              <div class="">
+                <img
+                  [src]="imagePathFrontLicense"
+                  class="img-fluid"
+                  alt="Responsive image"
+                />
+              </div>
+            </div>
+            <div class="col-lg-6 mb-3" *ngIf="imagePathBackLicense">
+              <h4 class="card-title">Car License Back</h4>
+              <div class="">
+                <img
+                  [src]="imagePathBackLicense"
                   class="img-fluid"
                   alt="Responsive image"
                 />

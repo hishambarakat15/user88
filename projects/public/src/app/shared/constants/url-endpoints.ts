@@ -21,7 +21,7 @@ export abstract class UrlEndpoints {
  static readonly GET_EmploymentTypes: string = 'api/LookUps/EmploymentTypes';
 
   // POST_TOKEN_AUTH:
-  static readonly POST_TOKEN_AUTH: string = "TokenAuth/Authenticate";
+  static readonly POST_TOKEN_AUTH: string = "api/Auth/Risklogin";
 
   // Rating (questions)
   static readonly GET_QUESTIONS: string = 'services/app/Questions/GetAll';

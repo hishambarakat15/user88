@@ -12,8 +12,10 @@ export class UserItemComponent implements OnInit {
   nationalId!: [];
   userId!: string;
   natiolalIdBack: any;
-  imagePathFront: any;
-  imagePathBack: any;
+  imagePathFrontNational: any;
+  imagePathBackNational: any;
+  imagePathFrontLicense: any;
+  imagePathBackLicense: any;
   constructor(
     private _userService: UsersService,
     private _sanitizer: DomSanitizer,
@@ -25,15 +27,23 @@ export class UserItemComponent implements OnInit {
     this.route.params.subscribe((params) => (this.userId = params['id']));
 
     this._userService.getUserById(this.userId).subscribe((res) => {
-      console.log(res);
+      console.log("getUserById", res);
       this.userItem = res.data;
-      this.imagePathFront = this._sanitizer.bypassSecurityTrustResourceUrl(
+      this.imagePathFrontNational = this._sanitizer.bypassSecurityTrustResourceUrl(
         'data:image/jpg;base64,' +
-          res.data.userDocuments.find((x: any) => x.id == 1).content
+          res.data.userDocuments.find((x: any) => x.documnetType == 1).content
       );
-      this.imagePathBack = this._sanitizer.bypassSecurityTrustResourceUrl(
+      this.imagePathBackNational = this._sanitizer.bypassSecurityTrustResourceUrl(
         'data:image/jpg;base64,' +
-          res.data.userDocuments.find((x: any) => x.id == 2).content
+          res.data.userDocuments.find((x: any) => x.documnetType == 2).content
+      );
+      this.imagePathFrontLicense = this._sanitizer.bypassSecurityTrustResourceUrl(
+        'data:image/jpg;base64,' +
+          res.data.userDocuments.find((x: any) => x.documnetType == 3).content
+      );
+      this.imagePathBackLicense = this._sanitizer.bypassSecurityTrustResourceUrl(
+        'data:image/jpg;base64,' +
+          res.data.userDocuments.find((x: any) => x.documnetType == 4).content
       );
     });
   }

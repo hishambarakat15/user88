@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: "",
     pathMatch: "full",
-    redirectTo: "layout"
+    redirectTo: "auth"
   },
   {
     path: "landing",
@@ -14,6 +14,7 @@ const routes: Routes = [
   },
   { path: 'auth', loadChildren: () => import('./core/auth/auth.module').then(m => m.AuthModule) },
   { path: 'layout', loadChildren: () => import('./views/layout/layout.module').then(m => m.LayoutModule) },
+  { path: 'auth', loadChildren: () => import('./core/auth/auth.module').then(m => m.AuthModule) },
 ];
 
 @NgModule({
