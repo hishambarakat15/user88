@@ -6,7 +6,7 @@ import { AuthGuard } from '../../core/services/guard/auth-guard.service';
 import { LayoutComponent } from './layout.component';
 
 const routes: Routes = [{
-  path: '', component: LayoutComponent, canActivate: [AuthGuard], children: [
+  path: '', component: LayoutComponent, children: [
     { path: 'users-approval', loadChildren: () => import('./users-approval/users-approval.module').then(m => m.UsersApprovalModule) },
     { path: 'lockUps', loadChildren: () => import('./look-ups/look-ups.module').then(m => m.LookUpsModule) },
     { path: 'carBrand', loadChildren: () => import('./lookups/car-brand/car-brand.module').then(m => m.CarBrandModule) },
