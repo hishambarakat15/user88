@@ -16,6 +16,10 @@ export class UserItemComponent implements OnInit {
   imagePathBackNational: any;
   imagePathFrontLicense: any;
   imagePathBackLicense: any;
+  imagePathFrontClubId: any;
+  imagePathBackClubId: any;
+  imagePathContract: any;
+
   constructor(
     private _userService: UsersService,
     private _sanitizer: DomSanitizer,
@@ -45,6 +49,21 @@ export class UserItemComponent implements OnInit {
         'data:image/jpg;base64,' +
           res.data.userDocuments.find((x: any) => x.documnetType == 4).content
       );
+
+      this.imagePathFrontClubId = this._sanitizer.bypassSecurityTrustResourceUrl(
+        'data:image/jpg;base64,' +
+          res.data.userDocuments.find((x: any) => x.documnetType == 5).content
+      );
+      this.imagePathBackClubId = this._sanitizer.bypassSecurityTrustResourceUrl(
+        'data:image/jpg;base64,' +
+          res.data.userDocuments.find((x: any) => x.documnetType == 6).content
+      );
+
+      this.imagePathContract = this._sanitizer.bypassSecurityTrustResourceUrl(
+        'data:image/jpg;base64,' +
+          res.data.userDocuments.find((x: any) => x.documnetType == 7).content
+      );
+
     });
   }
 
